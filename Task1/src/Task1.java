@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/*TODO просто тестовый коммент*/
 public class Task1 {
 	private static String name;				// name of the file
 	private static List<String> list;	// search result
