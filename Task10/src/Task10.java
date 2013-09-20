@@ -61,7 +61,7 @@ public class Task10 {
 			for (int i = 0; i < 8; i++) {
 				t[i] = new FReader(i);
 			}
-			for (int i = 0; i < 150; i++) {
+			for (int i = 0; i < 10; i++) {
 				students = new TreeSet<>();
 				for (int j = 0; j < 8; j++) {
 					Student s = t[j].read();
