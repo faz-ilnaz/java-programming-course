@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Профиль</title>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<link href="css/justified-nav.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.min.css">
+	
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!-- Static navbar -->
+		<div class="header">
+	        <ul class="nav nav-pills pull-right">
+	          <li><a href="index.html">Home</a></li>
+	          <li class="active"><a href="#">Edit</a></li>
+	        </ul>
+        	<h3 class="text-muted">Studentbook ITIS</h3>
+      	</div>
+		<div id="tabs">
+		  <ul>
+		    <li><a href="#tabs-1">Личные данные</a></li>
+		    <li><a href="#tabs-2">Контакты</a></li>
+		  </ul>
+		  <div id="tabs-1">
+		    <form >
+
+			    <label for="name">Имя</label>
+			    <p><input type="text" name="name" value="Иван"></p>
+
+			    <label for="lastname">Фамилия</label>
+			    <p><input type="text" name="lastname" value="Иванов"></p>
+
+			    <label for="datepicker">День рождения</label>
+			    <p><input type="text" id="datepicker" /></p>
+
+			    <label for="groupName">Группа</label>
+			    <p><input type="radio" name="groupName" value="11-2101">11-2101</p>
+			    <p><input type="radio" name="groupName" value="11-2102">11-2102</p>
+			    <p><input type="radio" name="groupName" value="11-2103">11-2103</p>
+			    <p><input type="radio" name="groupName" value="11-2105">11-2105</p>
+			    <p><input type="radio" name="groupName" value="11-2106" checked>11-2106</p>
+			    <p><input type="radio" name="groupName" value="...">...</p>
+
+			    <label for="labs">Лаборатория</label>
+			    <p>
+			    	<select name="labs">
+				    	<option>Fujitsu Java</option>
+				    	<option>Fujitsu Retail</option>
+				    	<option>Fujitsu Testing</option>
+				    	<option>Fujitsu WATS</option>
+				    	<option>Fujitsu Infrastucture</option>
+				    	<option>Wextor</option>
+				    	<option>КИР</option>
+				    	<option>Интеллектуальные поисковые технологии и семантические технологии</option>
+				    	<option>Flatsoft</option>
+				    	<option>Барс Груп Python</option>
+				    	<option>Барс Груп JavaScript</option>
+				    	<option>Барс Груп .Net</option>
+				    	<option>SmartHead</option> 
+				    	<option>Android (Samsung Android Labs)</option>
+				    	<option selected>JetBrains</option>
+				    	<option>FossLabs</option>  
+				    	<option>Финлаб (Татфондбанк)</option>
+				    	<option>Системы электронного документооборота</option>
+				    	<option>IOS</option>
+				    </select>
+				   </p>
+
+			    <label for="comments">Дополнительная информация</label>
+			    <p><textarea name="comments" rows="5" cols="50">Участник Студвесны 2012; Призер олимпиады по программированию: 3 место; Окончил художественную школу
+				</textarea></p>
+
+			    <p><input type="submit" value="Сохранить" class="sub"></p>
+
+			</form>
+		  </div>
+		  <div id="tabs-2">
+		    <form>
+		    	<label for="phoneNum">Номер телефона</label>
+		    	<p><input type="text" name="phoneNum" value="+71231231231"></p>
+
+		    	<label for="gmail">Gmail</label>
+		    	<p><input type="text" name="gmail" value="ivanovivan@gmail.com"></p>
+
+		    	<label for="vk">Вконтакте</label>
+		    	<p><input type="text" name="vk" value="http://vk.com/ivanov_ivan"></p>
+
+		    	<label for="twitter">Twitter</label>
+		    	<p><input type="text" name="twitter" value="http://twitter.com/ivanov_ivan"></p>
+
+		    	<label for="instagram">Instagram</label>
+		    	<p><input type="text" name="instagram" value="http://instagram.com/ivanov_ivan"></p>
+
+		    	<p><input type="submit" value="Сохранить" class="sub"></p>
+		    </form>
+		  </div>
+		</div>
+	</div>
+</body
+</html>
