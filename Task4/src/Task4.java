@@ -18,8 +18,8 @@ public class Task4 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader b_in = null;
 		BufferedWriter b_out= null;
-		int n = 1000000;
-		int max = 10000;
+		int n = 10000000;
+		int max = 10000000;
 		
 		try {
 			b_out = new BufferedWriter(new FileWriter("test.txt"));
@@ -37,13 +37,20 @@ public class Task4 {
 		
 		try {
 			b_in = new BufferedReader(new FileReader("test.txt"));
-			b_in.mark(0);
-			int num = random.nextInt(10000);
+			int num = random.nextInt(1000000);
 			
 			System.out.println(searchTree(b_in, num));
 			
 			
-			b_in.mark(0);
+			
+		}
+		finally {
+			b_in.close();
+		}
+		
+		try {
+			b_in = new BufferedReader(new FileReader("test.txt"));
+			int num = random.nextInt(10000);
 			System.out.println(searchHash(b_in, num));
 			
 			
@@ -51,13 +58,12 @@ public class Task4 {
 		}
 		finally {
 			b_in.close();
-			b_out.close();
 		}
 
 	}
 	
 	public static long searchTree(BufferedReader b_in, int some_number) throws IOException {
-		b_in.reset();
+//		b_in.reset();
 		numbers = new TreeSet<>();
 		String str = b_in.readLine();
 		while(str != null) {
@@ -71,7 +77,7 @@ public class Task4 {
 	}
 	
 	public static long searchHash(BufferedReader b_in, int some_number) throws IOException {
-		b_in.reset();
+//		b_in.reset();
 		numbers = new HashSet<>();
 		String str = b_in.readLine();
 		while(str != null) {
