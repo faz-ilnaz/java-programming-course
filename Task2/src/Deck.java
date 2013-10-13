@@ -8,7 +8,7 @@ public class Deck {
 		
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 9; j++) {
-				deck[i * 9 + j] = new Card(Suits.values()[i], Card.rangs[j]);
+				deck[i * 9 + j] = new Card(Suits.values()[i], Rangs.values()[j]);
 			}
 		}
 	}
