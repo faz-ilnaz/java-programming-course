@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 // TODO не понял задание. этот код не верен
-
+// TODO все верно ты понял, заполнил коллекции, вычислил время поиска в той и другой. я зачла
 public class Task4 {
 
 	static Set<Integer> numbers;
