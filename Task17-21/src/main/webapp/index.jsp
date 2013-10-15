@@ -3,15 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>index</title>
+    <title>Sign in</title>
 </head>
 <body>
 <h2>Sign in:</h2>
 <c:set var="ok" scope="session" value="${true}"/>
 <c:if test="${!ok}">
-<p style="color: red">Error<p>
-    </c:if>
-<form action="hello" method="post">
+    <p style="color: red">Error<p>
+</c:if>
+<form action="signin" method="post">
     <p>Email</p>
     <input type="text" name="email">
     <br>

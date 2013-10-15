@@ -16,13 +16,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>ru.kpfu.itis.servlets.controller.HelloServlet</servlet-class>
+        <servlet-name>SigninServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.SigninServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>SigninServlet</servlet-name>
+        <url-pattern>/signin</url-pattern>
     </servlet-mapping>
 
 

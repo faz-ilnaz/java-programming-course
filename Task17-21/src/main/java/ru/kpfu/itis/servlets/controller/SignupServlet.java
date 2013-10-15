@@ -19,6 +19,9 @@ public class SignupServlet extends HttpServlet {
     public void doPost (HttpServletRequest request,
                         HttpServletResponse response) throws ServletException, IOException {
 
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
@@ -27,9 +30,16 @@ public class SignupServlet extends HttpServlet {
         student.setName(name);
         student.setEmail(email);
         student.setPassword(password);
-        studentDao.add(student);
-        getServletConfig().getServletContext().getRequestDispatcher(
+        if(studentDao.add(student)) {
+            request.setAttribute("ok", true);
+            getServletConfig().getServletContext().getRequestDispatcher(
                     "/jsp/profile.jsp").forward(request, response);
+        }  else {
+            request.setAttribute("ok", false);
+            getServletConfig().getServletContext().getRequestDispatcher(
+                    "/signup.jsp").forward(request, response);
+        }
+
 
     }
 }

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HelloServlet extends HttpServlet {
+public class SigninServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     StudentDao studentDao= new StudentDaoImpl();
@@ -24,6 +24,9 @@ public class HelloServlet extends HttpServlet {
     @Override
     public void doPost (HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
+
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         String email = request.getParameter("email");
         String password = request.getParameter("pass");

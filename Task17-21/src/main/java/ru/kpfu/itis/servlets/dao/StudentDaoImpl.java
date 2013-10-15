@@ -1,10 +1,5 @@
 package ru.kpfu.itis.servlets.dao;
 
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +18,10 @@ public class StudentDaoImpl implements StudentDao{
 
     private Connection getConnection() throws SQLException {
         return ConnectionFactory.getInstance().getConnection();
+    }
+
+    private boolean check(String hashedPass, String pass, String salt) {
+        return Utils.check(hashedPass, pass, salt);
     }
 
     public boolean check(String email, String password) {
@@ -57,11 +56,11 @@ public class StudentDaoImpl implements StudentDao{
                 e.printStackTrace();
             }
         }
-        return Student.check(hashedpass, password, salt);
+        return check(hashedpass, password, salt);
     }
 
-    public void add(Student student) {
-
+    public boolean add(Student student) {
+        boolean ok = true;
         try {
             String querystring = "INSERT INTO students (name, email, password, salt) VALUES (?, ?, ?, ?)";
             con = getConnection();
@@ -73,6 +72,7 @@ public class StudentDaoImpl implements StudentDao{
             ptmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         } finally {
             try {
                 if (rs != null)
@@ -87,6 +87,7 @@ public class StudentDaoImpl implements StudentDao{
                 e.printStackTrace();
             }
         }
+        return ok;
     }
 
     public void update(Student student) {

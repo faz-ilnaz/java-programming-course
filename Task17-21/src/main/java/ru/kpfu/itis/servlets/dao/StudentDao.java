@@ -8,7 +8,7 @@ public interface StudentDao {
 
     public  boolean check(String email, String password);
 
-    public void add(Student student);
+    public boolean add(Student student);
 
     public void update(Student student);
 
