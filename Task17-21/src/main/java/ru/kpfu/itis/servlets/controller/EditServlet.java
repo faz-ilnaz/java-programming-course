@@ -40,7 +40,7 @@ public class EditServlet extends HttpServlet {
             String information = request.getParameter("information").trim();
 
             String laboratory = "";
-
+	/*TODO переделай на enum*/
             switch (lab_num) {
                 case 1:
                     laboratory = "Fujitsu Java";

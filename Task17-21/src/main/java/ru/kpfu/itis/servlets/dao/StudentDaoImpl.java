@@ -10,7 +10,7 @@ import java.util.List;
 import ru.kpfu.itis.servlets.dao.factory.ConnectionFactory;
 import ru.kpfu.itis.servlets.model.Contacts;
 import ru.kpfu.itis.servlets.model.Student;
-
+/*TODO для каждой таблицы обычно делают свой dao класс*/
 public class StudentDaoImpl implements StudentDao{
 
     Connection con = null;
