@@ -18,6 +18,7 @@
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li class="active"><a href="#">Home</a></li>
+            <li><a href="edit.jsp">Edit</a></li>
             <li><a href="index.jsp">Exit</a></li>
         </ul>
         <h3 class="text-muted">Studentbook ITIS</h3>
@@ -26,28 +27,28 @@
         <div class="col-md-4 col-md-offset-2">
             <img src="images/default_avatar.gif" >
             <ul class="contacts">
-                <li>+71231231231</li>
-                <li><a href="mailto:ivanovivan@gmail.com">ivanovivan@gmail.com</a></li>
-                <li><a href="http://vk.com/ivanov_ivan">vk.com/ivanov_ivan</a></li>
-                <li><a href="http://twitter.com/ivanov_ivan">twitter.com/ivanov_ivan</a></li>
-                <li><a href="http://instagram.com/ivanov_ivan">instagram.com/ivanov_ivan</a></li>
+                <li><a href="mailto:${student.contacts.gmail}">${student.contacts.gmail}</a></li>
+                <li><a href="${student.contacts.vk}">${student.contacts.vk}</a></li>
+                <li><a href="${student.contacts.twitter}">${student.contacts.twitter}</a></li>
+                <li><a href="${student.contacts.instagramm}">${student.contacts.instagramm}</a></li>
+                <li><a href="${student.contacts.linkedin}">${student.contacts.linkedin}</a></li>
             </ul>
         </div>
+
         <div class="col-md-5">
 
-            <h2 class="user_name">Иванов Иван</h2>
+            <h2 class="user_name"><c:out value="${student.lastname} ${student.name}"/></h2>
             <p>
-                Дата рождения: 15 февраля 1994<br>
-                Группа: 11-2106<br>
-                Лаборатория: JetBrains Lab<br>
-                Активности: спорторг<br>
-                Дополнительная информация:
+                Дата рождения: <c:out value="${student.birthday}"/><br>
+                Группа: <c:out value="${student.group}"/><br>
+                Лаборатория: <c:out value="${student.laboratory}"/><br>
+                Активности: <c:out value="${student.activity}"/><br>
             </p>
-            <ul>
-                <li>Участник Студвесны 2012</li>
-                <li>Призер олимпиады по программированию: 3 место</li>
-                <li>Окончил художественную школу</li>
-            </ul>
+            <c:if test="${student.information != null}">
+                <p>Дополнительная информация:</p>
+                <p><c:out value="${student.information}"/></p>
+            </c:if>
+
         </div>
     </div>
 </div>

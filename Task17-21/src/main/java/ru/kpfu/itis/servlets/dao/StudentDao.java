@@ -10,11 +10,13 @@ public interface StudentDao {
 
     public boolean add(Student student);
 
-    public void update(Student student);
+    public boolean update(Student student);
 
     public void delete(Long id);
 
     public List findAll();
 
     public Student findByPrimaryKey(Long id) ;
+
+    public Student findByEmail(String email) ;
 }

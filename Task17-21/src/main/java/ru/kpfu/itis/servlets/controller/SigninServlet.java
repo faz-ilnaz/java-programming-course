@@ -9,12 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SigninServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,8 +26,13 @@ public class SigninServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
+
+        HttpSession session = request.getSession();
+
         if(studentDao.check(email, password)) {
             request.setAttribute("ok", true);
+            Student student = studentDao.findByEmail(email);
+            session.setAttribute("student", student);
             getServletConfig().getServletContext().getRequestDispatcher(
                     "/jsp/profile.jsp").forward(request, response);
         } else {

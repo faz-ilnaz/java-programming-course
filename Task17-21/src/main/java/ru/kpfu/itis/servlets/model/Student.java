@@ -5,10 +5,99 @@ import ru.kpfu.itis.servlets.dao.Utils;
 public class Student {
     private Long id;
     private String name;
+    private String lastname;
+    private String birthday;
+    private String group;
+    private String laboratory;
+    private String information;
+    private String activity;
     private String email;
     private String password;
     private String salt;
+    private Contacts contacts;
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", group='" + group + '\'' +
+                ", laboratory='" + laboratory + '\'' +
+                ", information='" + information + '\'' +
+                ", activity='" + activity + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", contacts=" + contacts +
+                '}';
+    }
+
+
+
+    public Contacts getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Contacts contacts) {
+        this.contacts = contacts;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getLaboratory() {
+        return laboratory;
+    }
+
+    public void setLaboratory(String laboratory) {
+        this.laboratory = laboratory;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+
+
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public String getSalt() {
 
