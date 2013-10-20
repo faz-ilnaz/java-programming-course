@@ -52,25 +52,25 @@
 			    <p>Лаборатория</p>
 			    <p>
 			    	<select name="labs">
-				    	<option value="1">Fujitsu Java</option>
-				    	<option value="2">Fujitsu Retail</option>
+				    	<option value="0">Fujitsu Java</option>
+				    	<option value="1">Fujitsu Retail</option>
+				    	<option value="2">Fujitsu WATS</option>
 				    	<option value="3">Fujitsu Testing</option>
-				    	<option value="4">Fujitsu WATS</option>
-				    	<option value="5">Fujitsu Infrastucture</option>
-				    	<option value="6">Wextor</option>
-				    	<option value="7">КИР</option>
-				    	<option value="8">Интеллектуальные поисковые технологии и семантические технологии</option>
-				    	<option value="9">Flatsoft</option>
-				    	<option value="10">Барс Груп Python</option>
-				    	<option value="11">Барс Груп JavaScript</option>
-				    	<option value="12">Барс Груп .Net</option>
-				    	<option value="13">SmartHead</option>
-				    	<option value="14">Android (Samsung Android Labs)</option>
-				    	<option value="15">JetBrains</option>
-				    	<option value="16">FossLabs</option>
-				    	<option value="17">Финлаб (Татфондбанк)</option>
-				    	<option value="18">Системы электронного документооборота</option>
-				    	<option value="19">IOS</option>
+				    	<option value="4">Fujitsu Infrastucture</option>
+				    	<option value="5">Wextor</option>
+				    	<option value="6">КИР</option>
+				    	<option value="7">Интеллектуальные поисковые технологии и семантические технологии</option>
+				    	<option value="8">Flatsoft</option>
+				    	<option value="9">Барс Груп Python</option>
+				    	<option value="10">Барс Груп JavaScript</option>
+				    	<option value="11">Барс Груп .Net</option>
+				    	<option value="12">SmartHead</option>
+				    	<option value="13">Android (Samsung Android Labs)</option>
+				    	<option value="14">JetBrains</option>
+				    	<option value="15">FossLabs</option>
+				    	<option value="16">Финлаб (Татфондбанк)</option>
+                        <option value="17">Системы электронного документооборота</option>
+				    	<option value="18">IOS</option>
 				    </select>
 				   </p>
 

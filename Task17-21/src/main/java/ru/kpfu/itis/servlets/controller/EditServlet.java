@@ -36,74 +36,10 @@ public class EditServlet extends HttpServlet {
             if(request.getParameter("labs") != null) {
                 lab_num = Integer.parseInt(request.getParameter("labs"));
             }
+            String laboratory = labs.values()[lab_num].toString();
+
             String activity = request.getParameter("activity");
             String information = request.getParameter("information").trim();
-
-            String laboratory = "";
-	/*TODO переделай на enum*/
-            switch (lab_num) {
-                case 1:
-                    laboratory = "Fujitsu Java";
-                    break;
-
-                case 2:
-                    laboratory = "Fujitsu Retail";
-                    break;
-                case 3:
-                    laboratory = "Fujitsu Testing";
-                    break;
-                case 4:
-                    laboratory = "Fujitsu WATS";
-                    break;
-                case 5:
-                    laboratory = "Fujitsu Infrastucture";
-                    break;
-                case 6:
-                    laboratory = "Wextor";
-                    break;
-                case 7:
-                    laboratory = "КИР";
-                    break;
-                case 8:
-                    laboratory = "Интеллектуальные поисковые технологии и семантические технологии";
-                    break;
-                case 9:
-                    laboratory = "Flatsoft";
-                    break;
-                case 10:
-                    laboratory = "Барс Груп Python";
-                    break;
-                case 11:
-                    laboratory = "Барс Груп JavaScript";
-                    break;
-                case 12:
-                    laboratory = "Барс Груп .Net";
-                    break;
-                case 13:
-                    laboratory = "SmartHead";
-                    break;
-                case 14:
-                    laboratory = "Android (Samsung Android Labs)";
-                    break;
-                case 15:
-                    laboratory = "JetBrains";
-                    break;
-                case 16:
-                    laboratory = "FossLabs";
-                    break;
-                case 17:
-                    laboratory = "Финлаб (Татфондбанк)";
-                    break;
-                case 18:
-                    laboratory = "Системы электронного документооборота";
-                    break;
-
-                case 19:
-                    laboratory = "IOS";
-                    break;
-                default:
-                    break;
-            }
 
 
 
