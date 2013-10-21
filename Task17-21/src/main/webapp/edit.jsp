@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
 </head>
 <body>
@@ -35,23 +36,23 @@
 
             <%--<c:set var="student" scope="session" value="${null}"/>--%>
 		  <div id="tabs-1">
-		    <form action="edit" method="post">
+		    <form id="edit_form1" action="edit" method="post">
 
-			    <p>Имя</p>
-			    <p><input type="text" name="name" value="<c:out value="${student.name}" />"></p>
+                <label for="name">Имя</label>
+			    <p><input id="name" type="text" name="name" value="<c:out value="${student.name}" />"></p>
 
-			    <p>Фамилия</p>
-			    <p><input type="text" name="lastname" value="<c:out value="${student.lastname}"/>"></p>
+                <label for="lastname">Фамилия</label>
+			    <p><input id="lastname" type="text" name="lastname" value="<c:out value="${student.lastname}"/>"></p>
 
-			    <p>День рождения</p>
+                <label for="datepicker">Дата рождения</label>
 			    <p><input type="text" id="datepicker" name="birthday" value="<c:out value="${student.birthday}"/>"/></p>
 
-			    <p>Группа</p>
-			    <p><input type="text" name="group" value="<c:out value="${student.group}"/>"></p>
+                <label for="group">Группа</label>
+			    <p><input id="group" type="text" name="group" value="<c:out value="${student.group}"/>"></p>
 
-			    <p>Лаборатория</p>
+                <label for="laboratory">Лаборатория</label>
 			    <p>
-			    	<select name="labs">
+			    	<select id="laboratory" name="labs">
 				    	<option value="0">Fujitsu Java</option>
 				    	<option value="1">Fujitsu Retail</option>
 				    	<option value="2">Fujitsu WATS</option>
@@ -74,8 +75,8 @@
 				    </select>
 				   </p>
 
-                <p>Активности</p>
-                <p><input type="text" name="activity" value="<c:out value="${student.activity}"/>"></p>
+                <label for="activity">Активности</label>
+                <p><input id="activity" type="text" name="activity" value="<c:out value="${student.activity}"/>"></p>
 
 			    <p>Дополнительная информация:</p>
 			    <p>
@@ -89,7 +90,7 @@
 			</form>
 		  </div>
 		  <div id="tabs-2">
-		    <form action="edit" method="post">
+		    <form id="edit_form2" action="edit" method="post">
 
 		    	<label for="gmail">Gmail</label>
 		    	<p><input type="text" name="gmail" value="${student.contacts.gmail}"></p>

@@ -29,10 +29,11 @@ public class SignupServlet extends HttpServlet {
         String name = request.getParameter("name");
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
-        String password = request.getParameter("pass");
+        String password = request.getParameter("password");
         String birthday = request.getParameter("birthday");
         String group = request.getParameter("group");
-        String laboratory = request.getParameter("laboratory");
+        int lab_num = Integer.parseInt(request.getParameter("laboratory"));
+        String laboratory = labs.values()[lab_num].toString();
         String activity = request.getParameter("activity");
 
         Student student = new Student();
