@@ -42,7 +42,8 @@ public class SigninServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        if(studentDao.check(email, password)) {
+        if(!email.isEmpty() && !password.isEmpty() &&
+                studentDao.check(email, password)) {
             request.setAttribute("ok", true);
             Student student = studentDao.findByEmail(email);
             student.setContacts(contactsDao.findByEmail(email));

@@ -45,6 +45,18 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>UserLogFilter</filter-name>
+        <filter-class>ru.kpfu.itis.servlets.filter.UserLogFilter</filter-class>
+        <init-param>
+            <param-name>logFile</param-name>
+            <param-value>log/userLogs.txt</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserLogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <filter>
         <filter-name>UserAuthFilter</filter-name>
@@ -58,5 +70,7 @@
         <filter-name>UserAuthFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
 
 </web-app>
