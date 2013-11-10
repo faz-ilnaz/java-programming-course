@@ -1,0 +1,227 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.4
+-- Dumped by pg_dump version 9.2.4
+-- Started on 2013-11-11 03:27:35
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 172 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1943 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 171 (class 1259 OID 32774)
+-- Name: contacts; Type: TABLE; Schema: public; Owner: user; Tablespace: 
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    gmail character varying(100),
+    vk character varying(100),
+    twitter character varying(100),
+    instagram character varying(100),
+    linkedin character varying(100),
+    user_email character varying(100)
+);
+
+
+ALTER TABLE public.contacts OWNER TO "user";
+
+--
+-- TOC entry 170 (class 1259 OID 32772)
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: user
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contacts_id_seq OWNER TO "user";
+
+--
+-- TOC entry 1944 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
+
+--
+-- TOC entry 169 (class 1259 OID 24579)
+-- Name: students; Type: TABLE; Schema: public; Owner: user; Tablespace: 
+--
+
+CREATE TABLE students (
+    id integer NOT NULL,
+    name character varying(25),
+    email character varying(50),
+    password character varying(50),
+    salt character varying(20),
+    lastname character varying(30),
+    groupname character varying(20),
+    laboratory character varying(50),
+    information text,
+    activity character varying(50),
+    birthday character varying(25),
+    ava_url character varying(100)
+);
+
+
+ALTER TABLE public.students OWNER TO "user";
+
+--
+-- TOC entry 168 (class 1259 OID 24577)
+-- Name: students_id_seq; Type: SEQUENCE; Schema: public; Owner: user
+--
+
+CREATE SEQUENCE students_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.students_id_seq OWNER TO "user";
+
+--
+-- TOC entry 1945 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user
+--
+
+ALTER SEQUENCE students_id_seq OWNED BY students.id;
+
+
+--
+-- TOC entry 1925 (class 2604 OID 32777)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
+
+
+--
+-- TOC entry 1924 (class 2604 OID 24582)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY students ALTER COLUMN id SET DEFAULT nextval('students_id_seq'::regclass);
+
+
+--
+-- TOC entry 1935 (class 0 OID 32774)
+-- Dependencies: 171
+-- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: user
+--
+
+INSERT INTO contacts (id, gmail, vk, twitter, instagram, linkedin, user_email) VALUES (16, 'vika@gmail.com', 'http://vk.com/vika', 'http://twitter.com/vika777', 'http://instagram.com/vasileva', 'http://linkedin.com/vika_vasileva', 'vika@example.com');
+INSERT INTO contacts (id, gmail, vk, twitter, instagram, linkedin, user_email) VALUES (15, 'ivanovivan@gmail.com', 'http://vk.com/ivanov_ivan', 'http://twitter.com/ivanov_ivan', 'http://instagram.com/ivanov_ivan', 'http://linkedin.com/ivanov_ivan', 'ivanov@example.com');
+INSERT INTO contacts (id, gmail, vk, twitter, instagram, linkedin, user_email) VALUES (17, 'rakhimov@gmail.com', 'http://vk.com/kostya', 'http://twitter.com/rakhimov1', 'http://instagram.com/kostyan', 'http://linkedin.com/rakh', 'kostya@example.com');
+
+
+--
+-- TOC entry 1946 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
+--
+
+SELECT pg_catalog.setval('contacts_id_seq', 17, true);
+
+
+--
+-- TOC entry 1933 (class 0 OID 24579)
+-- Dependencies: 169
+-- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: user
+--
+
+INSERT INTO students (id, name, email, password, salt, lastname, groupname, laboratory, information, activity, birthday, ava_url) VALUES (42, 'Виктория', 'vika@example.com', '37ccb2665b7a174c271494cb01426a9', 'RfhufB', 'Васильева', '11111', 'Fujitsu Retail', NULL, 'manager', '21.10.1994', 'images/image2.jpg');
+INSERT INTO students (id, name, email, password, salt, lastname, groupname, laboratory, information, activity, birthday, ava_url) VALUES (41, 'Иван', 'ivanov@example.com', '951a769ca91e5682a0ad90483fdcb3b3', 'uT9Wx0', 'Иванов', '00000', 'Fujitsu Java', 'Участник [...]  олимпиады', 'proger', '20.01.1994', 'images/image3.jpg');
+INSERT INTO students (id, name, email, password, salt, lastname, groupname, laboratory, information, activity, birthday, ava_url) VALUES (43, 'Рахимов', 'kostya@example.com', 'cb7f9b99e7f81bf8d856b1d41fdace98', 'XeHNCa', 'Константин', '77777', 'Fujitsu Java', 'Admin [...]', 'admin', '05.04.1994', 'images/image1.jpg');
+
+
+--
+-- TOC entry 1947 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
+--
+
+SELECT pg_catalog.setval('students_id_seq', 43, true);
+
+
+--
+-- TOC entry 1931 (class 2606 OID 32782)
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: user; Tablespace: 
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1927 (class 2606 OID 24584)
+-- Name: students_pkey; Type: CONSTRAINT; Schema: public; Owner: user; Tablespace: 
+--
+
+ALTER TABLE ONLY students
+    ADD CONSTRAINT students_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1929 (class 2606 OID 32771)
+-- Name: students_ukey; Type: CONSTRAINT; Schema: public; Owner: user; Tablespace: 
+--
+
+ALTER TABLE ONLY students
+    ADD CONSTRAINT students_ukey UNIQUE (email);
+
+
+--
+-- TOC entry 1942 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2013-11-11 03:27:35
+
+--
+-- PostgreSQL database dump complete
+--
+

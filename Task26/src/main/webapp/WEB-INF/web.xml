@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.SignupServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SigninServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.SigninServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SigninServlet</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SignoutServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.SignoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignoutServlet</servlet-name>
+        <url-pattern>/signout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.EditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UsersServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.UsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewServlet</servlet-name>
+        <servlet-class>ru.kpfu.itis.servlets.controller.AnotherUserProfileServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewServlet</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <jsp-file>/profile.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+
+
+    <filter>
+        <filter-name>UserLogFilter</filter-name>
+        <filter-class>ru.kpfu.itis.servlets.filter.UserLogFilter</filter-class>
+        <init-param>
+            <param-name>logFile</param-name>
+            <param-value>log/userLogs.txt</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserLogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--<filter>-->
+        <!--<filter-name>UserAuthFilter</filter-name>-->
+        <!--<filter-class>ru.kpfu.itis.servlets.filter.UserAuthFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>avoid-urls</param-name>-->
+            <!--<param-value>/css,/js,/signin,/signup,/users</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>UserAuthFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <welcome-file-list>
+        <welcome-file>users</welcome-file>
+    </welcome-file-list>
+
+
+
+</web-app>
