@@ -1,6 +1,7 @@
 <%-- Created by IntelliJ IDEA. --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags/layout" prefix="layout" %>
 <html>
 <head>
     <title>Профиль</title>
@@ -16,49 +17,29 @@
 <body>
 
 <div class="container">
-    <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <%
-
-                if (session != null
-                        && session.getAttribute("student") != null) {
-                    %>
-                    <li><a href="signin">Home</a></li>
-                    <li class="active"><a href="#">Users</a></li>
-                    <li><a href="signout">Exit</a></li>
-                    <%
-                } else { %>
-                    <li><a href="users">Back</a></li>
-                    <li><a href="signin">Sign in</a></li>
-                    <%
-                }
-            %>
-
-        </ul>
-        <h3 class="text-muted">Studentbook ITIS</h3>
-    </div>
+    <layout:header student="${student}"/>
     <div class="row">
         <div class="col-md-4 col-md-offset-2">
             <img src="<c:out value='${a_student.ava_url}'/>" >
             <c:if test="${a_student.contacts != null}">
                 <ul class="contacts">
-                    <c:if test="${!a_student.contacts.gmail.isEmpty()}">
+                    <c:if test="${not empty a_student.contacts.gmail}">
                         <li><a href="mailto:${a_student.contacts.gmail}">${a_student.contacts.gmail}</a></li>
                     </c:if>
 
-                    <c:if test="${!a_student.contacts.vk.isEmpty()}">
+                    <c:if test="${not empty a_student.contacts.vk}">
                         <li><a href="${a_student.contacts.vk}">${a_student.contacts.vk}</a></li>
                     </c:if>
 
-                    <c:if test="${!a_student.contacts.twitter.isEmpty()}">
+                    <c:if test="${not empty a_student.contacts.twitter}">
                         <li><a href="${a_student.contacts.twitter}">${a_student.contacts.twitter}</a></li>
                     </c:if>
 
-                    <c:if test="${!a_student.contacts.instagramm.isEmpty()}">
+                    <c:if test="${not empty a_student.contacts.instagramm}">
                         <li><a href="${a_student.contacts.instagramm}">${a_student.contacts.instagramm}</a></li>
                     </c:if>
 
-                    <c:if test="${!a_student.contacts.linkedin.isEmpty()}">
+                    <c:if test="${not empty a_student.contacts.linkedin}">
                         <li><a href="${a_student.contacts.linkedin}">${a_student.contacts.linkedin}</a></li>
                     </c:if>
                 </ul>
