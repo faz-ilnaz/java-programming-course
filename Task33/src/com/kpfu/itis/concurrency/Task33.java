@@ -35,7 +35,7 @@ public class Task33 {
 
 		// 2 : с помощью Callable, Future, ExecutorService
 
-		ExecutorService exec = Executors.newCachedThreadPool();
+		ExecutorService exec = Executors.newFixedThreadPool(n);
 		List<Future<Integer>> results = new ArrayList<>();
 
 		CallableCounter[] cc = new CallableCounter[n];
