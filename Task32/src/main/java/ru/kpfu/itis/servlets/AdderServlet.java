@@ -21,7 +21,7 @@ public class AdderServlet extends HttpServlet {
 
             double num1 = Double.parseDouble(request.getParameter("num1"));
             double num2 = Double.parseDouble(request.getParameter("num2"));
-
+		/*TODO пока ты сравниваешь num1, number2 может успеть поменяться другим потоком*/
             if(num1 != number1 || num2 != number2) {
                 setVars(num1,num2);
             }
