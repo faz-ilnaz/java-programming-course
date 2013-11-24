@@ -30,7 +30,7 @@ public class AdderServlet extends HttpServlet {
                     "/index.jsp").forward(request, response);
 
     }
-
+	/*TODO Представь, что вместо суммы у нас какая-то дорогая по времени операция, как бы ты тогда это запрограммировал?*/
     static synchronized double getSum(double num1, double num2) {
         if(!(num1 == number1 && num2 == number2 ||
                 num1 == number2 && num2 == number1)) {
