@@ -41,7 +41,8 @@ public class TicketWindow {
 		}
 		return f;
 	}
-	
+	/*TODO volatile массив это не то же самое, что массив volatile элементов. Т.е. видимость ссылки seatAvailable гаратнитуется, а видимость элементов seatAvailable - нет. Чтобы поток, который будет вызывать printOccupancy() видел актуальные значения seatAvailable, 
+нужно либо сделать метод printOccupancy() synchronized, либо использовать AtomicBoolean[] массив. */
 	public void printOccupancy() {
 		for( int i = 0; i < n; i++ ) {
 			for( int j = 0; j < n; j++ ) {
