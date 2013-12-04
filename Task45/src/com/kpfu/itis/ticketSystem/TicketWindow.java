@@ -17,7 +17,7 @@ public class TicketWindow {
 			{15, 15, 15, 15, 15}
 	};
 	
-	private volatile boolean[][] seatAvailable = new boolean[n][n];
+	private boolean[][] seatAvailable = new boolean[n][n];
 	
 	private int totalCash;
 
@@ -41,9 +41,8 @@ public class TicketWindow {
 		}
 		return f;
 	}
-	/*TODO volatile массив это не то же самое, что массив volatile элементов. Т.е. видимость ссылки seatAvailable гаратнитуется, а видимость элементов seatAvailable - нет. Чтобы поток, который будет вызывать printOccupancy() видел актуальные значения seatAvailable, 
-нужно либо сделать метод printOccupancy() synchronized, либо использовать AtomicBoolean[] массив. */
-	public void printOccupancy() {
+	
+	public synchronized void printOccupancy() {
 		for( int i = 0; i < n; i++ ) {
 			for( int j = 0; j < n; j++ ) {
 				System.out.print((seatAvailable[i][j] == false) ? "[x] " : "[ ] ");

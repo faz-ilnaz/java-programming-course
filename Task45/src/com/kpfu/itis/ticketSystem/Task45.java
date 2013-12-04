@@ -11,7 +11,7 @@ public class Task45 {
 		int n = 20;
 
 		final CountDownLatch startGate = new CountDownLatch(1);
-		final CountDownLatch endGate = new CountDownLatch(20);
+		final CountDownLatch endGate = new CountDownLatch(n);
 
 		final TicketWindow tw = new TicketWindow();
 
