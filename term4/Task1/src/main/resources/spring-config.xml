@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean name="ati" class="foo.bar.Graphics">
+        <constructor-arg name="name" value="ATI_Radeon"></constructor-arg>
+    </bean>
+    
+    <bean name="adreno" class="foo.bar.Graphics">
+    	<constructor-arg name="name" value="Adreno 320"></constructor-arg>
+    </bean>
+    
+    <bean class="foo.bar.Computer">
+    	<property name="graphics" ref="ati"></property>
+    	<property name="memory">
+    		<list>
+    			<ref bean="ram1"></ref>
+    			<ref bean="ram1"></ref>
+    		</list>
+    	</property>
+    </bean>
+    
+    <bean name="nexus4" class="foo.bar.Smartphone">
+    	<constructor-arg name="graphics" ref="adreno"></constructor-arg>
+    	<constructor-arg name="memory" ref="ram2"></constructor-arg>
+    </bean>
+    
+    <bean name="ram1" class="foo.bar.Ram">
+    	<property name="model" value="Seagate"></property>
+    	<property name="capacity" value="4"></property>
+    </bean>
+    
+    <bean name="ram2" class="foo.bar.Ram">
+    	<property name="model" value="LG"></property>
+    	<property name="capacity" value="2"></property>
+    </bean>
+    
+
+
+</beans>
