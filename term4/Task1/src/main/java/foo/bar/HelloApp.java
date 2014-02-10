@@ -13,7 +13,7 @@ public class HelloApp {
         
         System.out.println();
         System.out.println("Smartphone");
-        Smartphone smartphone = (Smartphone)context.getBean("nexus4");
+        Smartphone smartphone = (Smartphone)context.getBean("nexus_4");
         System.out.println(smartphone);
         
         

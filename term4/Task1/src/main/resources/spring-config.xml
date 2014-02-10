@@ -22,7 +22,7 @@
     	</property>
     </bean>
     
-    <bean name="nexus4" class="foo.bar.Smartphone">
+    <bean name="nexus_4" class="foo.bar.Smartphone">
     	<constructor-arg name="graphics" ref="adreno"></constructor-arg>
     	<constructor-arg name="memory" ref="ram2"></constructor-arg>
     </bean>
