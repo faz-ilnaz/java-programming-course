@@ -19,6 +19,10 @@ public class HelloApp {
         Smartphone smartphone = (Smartphone)context.getBean(Smartphone.class);
         System.out.println(smartphone);
         
+        System.out.println();
+        Notebook notebook = context.getBean(Notebook.class);
+        notebook.getGraphics("Radeon HD 6470M x64" , "Radeon HD 6520G");
+        
         
     }
 }
