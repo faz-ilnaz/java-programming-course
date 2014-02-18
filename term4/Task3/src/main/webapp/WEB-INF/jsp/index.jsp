@@ -1,11 +1,11 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-    <title>Spring MVC Form Handling</title>
+    <title>Handbook, ver1</title>
 </head>
 <body>
 
-<h2>Student Information</h2>
+<h2>Contact information</h2>
 <form:form method="POST" action="addStudent">
     <table>
         <tr>
@@ -13,12 +13,8 @@
             <td><form:input path="name" /></td>
         </tr>
         <tr>
-            <td><form:label path="age">Age</form:label></td>
-            <td><form:input path="age" /></td>
-        </tr>
-        <tr>
-            <td><form:label path="id">id</form:label></td>
-            <td><form:input path="id" /></td>
+            <td><form:label path="phoneNum">Phone Number</form:label></td>
+            <td><form:input path="phoneNum" /></td>
         </tr>
         <tr>
             <td colspan="2">

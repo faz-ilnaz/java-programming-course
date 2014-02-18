@@ -23,6 +23,7 @@ public class StudentController {
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
 	public String addStudent(@ModelAttribute("SpringWeb") Student student,
 			ModelMap model) {
+		student.setId(list.size() + 1);
 		list.add(student);
 		model.addAttribute("lists", list);
 		return "result";

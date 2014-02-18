@@ -6,23 +6,23 @@
 </head>
 <body>
 
-	<h2>Submitted Student Information</h2>
-	<table>
+	<h2>Submitted Contact Information</h2>
+	<table >
 		<tr>
 			<td>ID</td>
 			<td>Name</td>
-			<td>Age</td>
+			<td>Phone number</td>
 		</tr>
 		<c:if test="${not empty lists}">
 			<c:forEach var="student" items="${lists}">
 				<tr>
 					<td>${student.id}</td>
 					<td>${student.name}</td>
-					<td>${student.age}</td>
+					<td>${student.phoneNum}</td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td><a href="<c:url value='/'/>">Add new contact</a></td>
+				<td colspan="3"><a href="<c:url value='/'/>">Add new contact</a></td>
 			</tr>
 		</c:if>
 	</table>
