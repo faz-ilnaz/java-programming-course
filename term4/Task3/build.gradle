@@ -34,6 +34,7 @@ allprojects {
         }
     }
 
+    
     [tomcatRun, tomcatRunWar, tomcatStop]*.stopPort = 8090
     [tomcatRun, tomcatRunWar, tomcatStop]*.stopKey = 'foo'
     [tomcatRun, tomcatRunWar, tomcatStop]*.URIEncoding = 'UTF-8'
