@@ -6,9 +6,9 @@ import java.util.List;
 import logic.Student;
 
 public interface StudentDAO {
-    public void addStudent(Student student) throws SQLException;   //добавить студента
-    public void updateStudent(Student student) throws SQLException;//обновить студента
-    public Student getStudentById(Long id) throws SQLException;    //получить стедента по id
-    public List getAllStudents() throws SQLException;              //получить всех студентов
-    public void deleteStudent(Student student) throws SQLException;//удалить студента
+    public void addStudent(Student student) throws SQLException;   //РґРѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°
+    public void updateStudent(Student student) throws SQLException;//РѕР±РЅРѕРІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°
+    public Student getStudentById(Long id) throws SQLException;    //РїРѕР»СѓС‡РёС‚СЊ СЃС‚РµРґРµРЅС‚Р° РїРѕ id
+    public List getAllStudents() throws SQLException;              //РїРѕР»СѓС‡РёС‚СЊ РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ
+    public void deleteStudent(Student student) throws SQLException;//СѓРґР°Р»РёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°
 }

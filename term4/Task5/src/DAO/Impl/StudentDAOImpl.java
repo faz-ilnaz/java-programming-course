@@ -19,7 +19,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.save(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Œ¯Ë·Í‡ I/O", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "–û—à–∏–±–∫–∞ I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
                     session.close();
@@ -35,7 +35,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.update(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Œ¯Ë·Í‡ I/O", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "–û—à–∏–±–∫–∞  I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
                     session.close();
@@ -50,7 +50,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session = HibernateUtil.getSessionFactory().openSession();
                 stud = (Student) session.load(Student.class, id);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Œ¯Ë·Í‡ I/O", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "–û—à–∏–±–∫–∞ I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
                     session.close();
@@ -66,7 +66,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session = HibernateUtil.getSessionFactory().openSession();
                 studs = session.createCriteria(Student.class).list();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Œ¯Ë·Í‡ I/O", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "–û—à–∏–±–∫–∞ I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
                     session.close();
@@ -83,7 +83,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.delete(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Œ¯Ë·Í‡ I/O", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "–û—à–∏–±–∫–∞  I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
                     session.close();
