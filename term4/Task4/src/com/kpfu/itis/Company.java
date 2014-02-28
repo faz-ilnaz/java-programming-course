@@ -1,5 +1,7 @@
 package com.kpfu.itis;
 
+import java.util.List;
+
 public class Company {
 	
 	private int id;
@@ -8,6 +10,8 @@ public class Company {
 	private String about;
 	private String email;
 	private String password;
+	
+	private List<Vacancy> vacancies;
 	
 	public int getId() {
 		return id;
@@ -44,6 +48,12 @@ public class Company {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public List<Vacancy> getVacancies() {
+		return vacancies;
+	}
+	public void setVacancies(List<Vacancy> vacancies) {
+		this.vacancies = vacancies;
 	}
 
 }

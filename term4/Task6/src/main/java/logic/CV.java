@@ -1,27 +1,64 @@
-package com.kpfu.itis;
+package logic;
 
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "cv")
 public class CV {
 
-	private int id;
+	@Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    @Column(name="id")
+	private Long id;
+	
+	@Column(name="title")
 	private String title;
+	
+	@Column(name="education")
 	private Education education;
+	
+	@Column(name="experience_from")
+	@Temporal(value=TemporalType.DATE)
 	private Date experienceFrom;
+	
+	@Column(name="gender")
 	private Gender gender;
+	
+	@Column(name="cv_text")
 	private String text;
 	
+	@ManyToOne
 	private User user;
+	
+	@ManyToMany(mappedBy = "cvs")
 	private List<Category> categories;
+	
+	@OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
 	private List<Invite> invites;
 	
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

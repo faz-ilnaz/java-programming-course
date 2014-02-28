@@ -40,7 +40,7 @@ CREATE TABLE cv
 	category_id integer NOT NULL,
 	CONSTRAINT cv_pkey PRIMARY KEY(id),
 	CONSTRAINT user_id_fkey FOREIGN KEY(user_id) REFERENCES user(id),
-	CONSTRAINT cat_id_fkey1 FOREIGN KEY(category_id) REFERENCES category(id)
+	CONSTRAINT category_id_fkey FOREIGN KEY(id, category_id) REFERENCES cv_category(cv_id, category_id)
 );
 
 CREATE TABLE vacancy
@@ -67,4 +67,13 @@ CREATE TABLE invite
 	CONSTRAINT invite_pkey PRIMARY KEY(id),
 	CONSTRAINT vac_id_fkey FOREIGN KEY(vac_id) REFERENCES vacancy(id),
 	CONSTRAINT cv_id_fkey FOREIGN KEY(cv_id) REFERENCES cv(id)
+);
+
+CREATE TABLE cv_category
+(
+	cv_id integer NOT NULL,
+	category_id integer NOT NULL,
+	CONSTRAINT cv_cat_pkey PRIMARY KEY(cv_id, category_id),
+	CONSTRAINT cv_category_fkey_1 FOREIGN KEY(cv_id) REFERENCES cv(id),
+	CONSTRAINT cv_category_fkey_2 FOREIGN KEY(category_id) REFERENCES category(id)
 );
