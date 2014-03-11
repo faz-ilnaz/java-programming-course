@@ -25,7 +25,6 @@ public class Invite {
 	private Integer type;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "vac_id")
 	private Vacancy vacancy;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

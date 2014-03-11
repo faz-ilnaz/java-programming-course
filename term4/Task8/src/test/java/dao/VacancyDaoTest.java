@@ -59,12 +59,27 @@ public class VacancyDaoTest {
 	}
 
 	@Test
-	public void findByCompany() throws SQLException {
+	public void testFindByCompany() throws SQLException {
 		Vacancy newVac = createVacancy();
 		// create
 		vacancyDAO.save(newVac);
 		List<Vacancy> vacancies = vacancyDAO.findVacanciesByCompany(newVac
 				.getCompany().getId());
+
+		assertNotNull(vacancies);
+		assertFalse(vacancies.isEmpty());
+		for (Vacancy v : vacancies) {
+			assertNotNull(v);
+			assertNotNull(v.getId());
+		}
+	}
+	
+	@Test
+	public void testFindByCategory() throws SQLException {
+		Vacancy newVac = createVacancy();
+		// create
+		vacancyDAO.save(newVac);
+		List<Vacancy> vacancies = vacancyDAO.findVacanciesByCategory(newVac.getCategory().getId());
 
 		assertNotNull(vacancies);
 		assertFalse(vacancies.isEmpty());

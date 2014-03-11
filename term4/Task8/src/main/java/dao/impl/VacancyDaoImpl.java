@@ -24,4 +24,10 @@ public class VacancyDaoImpl extends CRUDDaoImpl<Vacancy> implements VacancyDAO {
                 .setParameter(0, company).list();
 	}
 
+	@Override
+	public List<Vacancy> findVacanciesByCategory(Long category) {
+		return getSession().createQuery("from Vacancy v where v.category.id=?")
+                .setParameter(0, category).list();
+	}
+
 }

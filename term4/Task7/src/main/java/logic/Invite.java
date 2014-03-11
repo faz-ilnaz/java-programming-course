@@ -24,11 +24,9 @@ public class Invite {
 	private Integer type;
 
 	@ManyToOne
-	@JoinColumn(name="vac_id")
 	private Vacancy vacancy;
 	
 	@ManyToOne
-	@JoinColumn(name="cv_id")
 	private CV cv;
 
 	public Long getId() {
