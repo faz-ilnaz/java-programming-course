@@ -57,7 +57,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		Category category = null;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			category = (Category) session.load(Category.class, id);
+			category = (Category) session.get(Category.class, id);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O",
 					JOptionPane.OK_OPTION);

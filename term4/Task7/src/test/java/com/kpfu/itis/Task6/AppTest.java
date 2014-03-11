@@ -17,6 +17,7 @@ import logic.Invite;
 import logic.User;
 import logic.Vacancy;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -91,12 +92,22 @@ public class AppTest {
 		invite.setVacancy(vacancy);
 		invite.setCv(cv);
 	}
+	
+	@Before
+	public void init2() throws SQLException {
+		userDAO.add(user);
+		companyDAO.add(company);
+		categoryDAO.add(category);
+		cvDao.add(cv);
+		vacancyDAO.add(vacancy);
+		inviteDAO.add(invite);
+	}
 
 	@Test
 	public void userCRUDTest() throws SQLException {
 
 		// CREATE, READ
-		userDAO.add(user);
+		
 		assertEquals(userDAO.findById(user.getId()).getFirstName(), "Henry");
 
 		// UPDATE
@@ -162,8 +173,43 @@ public class AppTest {
 		assertNull(companyDAO.findById(company.getId()));
 
 	}
+	
+	@Test
+	public void categoryCRUDTest() throws SQLException {
+		// create, read
+		categoryDAO.add(category);
+		
+		assertEquals(categoryDAO.findById(category.getId()).getName(), "Technology");
+		
+		// update
+		category.setName("Programming");
+		categoryDAO.update(category);
+		assertEquals(categoryDAO.findById(category.getId()).getName(), "Programming");
+		
+		// delete
+		categoryDAO.delete(category);
+		assertNull(categoryDAO.findById(category.getId()));
+	}
 
+	@Test
+	public void cvCRUDTest() throws SQLException {
+		// create, read
+		cvDao.add(cv);
+		assertEquals(cvDao.findById(cv.getId()).getTitle(),
+				"Software developer");
+		assertEquals(cvDao.findById(cv.getId()).getText(), "Python, Java, Ruby");
+		
+		// update
+		cv.setTitle("Programmer");
+		cvDao.update(cv);
+		assertEquals(cvDao.findById(cv.getId()).getTitle(), "Programmer");
+		
+		// delete
+		cvDao.delete(cv);
+		assertNull(cvDao.findById(cv.getId()));
+	}
 
+	@Test
 	public void vacancyCRUDTest() throws SQLException {
 		//create, read
 		vacancyDAO.add(vacancy);
@@ -181,17 +227,33 @@ public class AppTest {
 		assertNull(vacancyDAO.findById(vacancy.getId()));
 		
 	}
-
+	
 	@Test
-	public void userFindAllTest() throws SQLException {
-		userDAO.add(user);
-		List<User> users = userDAO.findAll();
-		assertNotNull(users);
-		assertFalse(users.isEmpty());
-		for (User user : users) {
-			assertNotNull(user);
-			assertNotNull(user.getId());
-		}
+	public void inviteCRUDTest() throws SQLException {
+		// create, read	
+		inviteDAO.add(invite);
+		assertEquals(inviteDAO.findById(invite.getId()).getType(), 1);
+		
+		// update
+		invite.setType(0);
+		inviteDAO.update(invite);
+		assertEquals(inviteDAO.findById(invite.getId()), 0);
+		
+		// delete
+		inviteDAO.delete(invite);
+		assertNull(inviteDAO.findById(invite.getId()));
 	}
+
+//	@Test
+//	public void userFindAllTest() throws SQLException {
+//		userDAO.add(user);
+//		List<User> users = userDAO.findAll();
+//		assertNotNull(users);
+//		assertFalse(users.isEmpty());
+//		for (User user : users) {
+//			assertNotNull(user);
+//			assertNotNull(user.getId());
+//		}
+//	}
 
 }
