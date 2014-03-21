@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 
 import model.Company;
-import model.User;
 import model.Vacancy;
 
 import org.junit.Test;
