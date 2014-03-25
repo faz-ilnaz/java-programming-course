@@ -13,7 +13,8 @@ public class OrderServiceProxy implements OrderService {
 	@Override
 	public String getOrder(String orderNumber) {
 		System.out.println("logOrderBefore() is running!");
-		System.out.println("hijacked : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		System.out.println("hijacked : " + methodName);
 		System.out.println("hijacked arguments : " + orderNumber);
 		System.out.println("******");
 		String result = "";
@@ -21,7 +22,7 @@ public class OrderServiceProxy implements OrderService {
 			result = target.getOrder(orderNumber);			
 		} catch(Exception e) {
 			System.out.println("logOrderAfterThrowing() is running!");
-			System.out.println("hijacked : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+			System.out.println("hijacked : " + methodName);
 			System.out.println("Exception : " + e);
 			System.out.println("******");
 			
@@ -34,9 +35,10 @@ public class OrderServiceProxy implements OrderService {
 	@Override
 	public String addOrder(String orderNumber, Long amount) {
 		System.out.println("logOrderAround() is running!");
-		System.out.println("hijacked method: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		System.out.println("hijacked method: " + methodName);
 		System.out.println("logOrderBefore() is running!");
-		System.out.println("hijacked : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		System.out.println("hijacked : " + methodName);
 		System.out.println("hijacked arguments : [" + orderNumber + ", " + amount + "]");
 		System.out.println("******");
 		String result; 
