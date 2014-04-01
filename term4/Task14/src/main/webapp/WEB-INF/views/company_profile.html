@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HH</title>
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div th:include="layout :: header(company)"></div>
+    <h3 th:text="${company.name}"></h3>
+    <dl class="dl-horizontal">
+        <dt>Город</dt>
+        <dd th:text="${company.city}">Казань</dd>
+        <dt>Email</dt>
+        <dd th:text="${company.email}">mail@gmail.com</dd>
+        <dt>Описание</dt>
+        <dd th:text="${company.description}">lorem ipsum, karoch</dd>
+    </dl>
+    <ul class="list-unstyled">
+        <li th:each="vacancy:${company.vacancies}"><a th:href="'/vacancy/' + ${vacancy.id}" th:text="${vacancy.title}">Программист</a></li>
+    </ul>
+</div>
+</body>
+</html>
