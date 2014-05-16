@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HH</title>
+
+</head>
+<body>
+
+<div>
+    <h3>Attendance</h3>
+    <p><a href="employee/create">Create new employee</a></p>
+    <p><a href="/new">Create record</a></p>
+    <table style="margin: 10px">
+        <tr>
+            <td>Name( Job)</td>
+            <td>21.04</td>
+            <td>22.04</td>
+            <td>23.04</td>
+        </tr>
+        <tr th:each="e : ${list}">
+            <td>
+                <span th:text="${e.firstname + ' ' + e.lastname}"></span><br/>
+                <span th:text="${e.job}"></span>
+            </td>
+            <div th:each="a : ${e.attendances}">
+                <td>
+                    <span th:text="${a.actualDate}"></span><br/>
+                    <span  th:text="${a.start}"></span><br/>
+                    <span th:text="${a.end}"></span>
+                </td>
+            </div>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

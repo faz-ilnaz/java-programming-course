@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="/resources/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" th:inline="text">
+        /*<![CDATA[*/
+        $(function(){
+            $("#start").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/attendance/save",
+                    data: {
+                        empl_id : $( "#empl_select" ).val(),
+                        type : 777
+                    }
+                }).done(function( msg ) {
+                    $("#start").html("Sended");
+                });
+            });
+            $("#end").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/attendance/save",
+                    data: {
+                        empl_id : $( "#empl_select" ).val(),
+                        type : 666
+                    }
+                }).done(function( msg ) {
+                    $("#end").html("Sended");
+                });
+            });
+        });
+        /*]]>*/
+    </script>
+</head>
+<body>
+
+<div class="container" style="min-width: 1000px">
+    <h3>Add</h3>
+    <p><a href="/employee/create">Create new employee</a></p>
+    <p><a href="/">list</a></p>
+    <div class="jumbotron" style="padding: 10px 30px 20px">
+        <div class="row">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Employee</label>
+                    <div class="col-lg-10">
+                        <select id="empl_select">
+                            <option th:each="e : ${allEmployees}"
+                                    th:value="${e.id}"
+                                    th:text="${e.firstname} + ' ' + ${e.lastname}">
+                            </option>
+                        </select>
+                    </div>
+                    <a id="start" href="#">Start</a>
+                    <a id="end" href="#">End</a>
+                </div>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
