@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HH</title>
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/resources/css/styles.css" rel="stylesheet"/>
+    <script src="/resources/js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" th:inline="text">
+        /*<![CDATA[*/
+        $(function () {
+            $("#check").click(function () {
+                var checked_answer = $('input:radio[name=answer]:checked').val();
+                if (checked_answer != undefined) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/check",
+                        data: {
+                            q_id: "[[${question.id}]]",
+                            a_num: checked_answer
+                        }
+                    }).done(function (msg) {
+                        if (msg == "false") {
+                            $("#message").html("<img src='/resources/images/incorrect.png' > <span class='text-danger'>Неверно<span>");
+                        } else if (msg == "true") {
+                            $("#message").html("<img src='/resources/images/correct.png'><span class='text-success'>Верно</span>");
+                        }
+                    });
+                } else {
+                    alert("Выберите сначала свой вариант ответа!")
+                }
+            });
+        });
+        /*]]>*/
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form action="#" th:action="@{/answer}" th:object="${question}" method="post" class="form-horizontal"
+              role="form">
+            <h2 id="message"></h2>
+
+            <h3 th:text="*{text}"></h3>
+
+            <div class="radio" th:each="a : *{answers}">
+                <label>
+                    <input type="radio" th:text="${a.text}" name="answer" th:value="${a.num}"/>
+                </label>
+            </div>
+
+            <div id="links">
+                <a class="btn btn-primary btn-m" role="button" id="check">Проверить</a>
+                <a th:href="'/?id='+ ${question.id + 1}" class="btn btn-primary btn-m" role="button" id="next">Следующий
+                    вопрос</a>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
