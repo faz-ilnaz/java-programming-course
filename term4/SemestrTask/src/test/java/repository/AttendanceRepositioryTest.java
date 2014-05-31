@@ -29,46 +29,92 @@ public class AttendanceRepositioryTest {
     private EmployeeRepository employeeRepository;
 
 
-    private Attendance createAttendance() {
-        Employee employee = generalEmployee();
-        employeeRepository.save(employee);
-        Attendance attendance = commonAttendance();
-        attendance.setEmployee(employee);
-        return attendance;
-    }
-
     @Test
     public void testFindAll() {
         //create
-        attendanceRepository.save(createAttendance());
+        Attendance attendance = commonAttendance();
+        Employee employee = generalEmployee();
+        attendance.setEmployee(employee);
+        employeeRepository.save(employee);
+        attendanceRepository.save(attendance);
         Iterable<Attendance> attendances = attendanceRepository.findAll();
         assertNotNull(attendances);
         assertTrue(attendances.iterator().hasNext());
         for(Attendance a : attendances) {
             assertNotNull(a);
         }
+
         //delete
         attendanceRepository.delete(attendances);
+        employeeRepository.delete(employee);
 
     }
 
     @Test
     public void testGetAttendancesByDateBetween() {
-        attendanceRepository.save(createAttendance());
+        Attendance attendance = commonAttendance();
+        Employee employee = generalEmployee();
+        attendance.setEmployee(employee);
+        employeeRepository.save(employee);
+        attendanceRepository.save(attendance);
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 8);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(2014, 4, 20);
-        Iterable<Attendance> attendances = attendanceRepository.getAttendanceByActualDateBetween(new Date(),calendar.getTime());
+        calendar.set(2014, 4, 15);
+        Iterable<Attendance> attendances = attendanceRepository.getAttendanceByActualDateBetween(calendar.getTime(), new Date());
         assertNotNull(attendances);
         assertTrue(attendances.iterator().hasNext());
         for(Attendance a : attendances) {
             assertNotNull(a);
-//            assertNotNull(a.getEmployee());
-//            assertNotNull(a.getEmployee().getId());
+            assertNotNull(a.getEmployee());
+            assertNotNull(a.getEmployee().getId());
         }
         //delete
         attendanceRepository.delete(attendances);
+        employeeRepository.delete(employee);
     }
+
+    @Test
+    public void testGetAttendancesByEmployeeAndDateBetween() {
+        Attendance attendance = commonAttendance();
+        Employee employee = generalEmployee();
+        attendance.setEmployee(employee);
+        employeeRepository.save(employee);
+        attendanceRepository.save(attendance);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2014, 4, 13);
+        Iterable<Attendance> attendances = attendanceRepository.getAttendanceByEmployeeIdAndActualDateBetween(employee.getId(), calendar.getTime(), new Date());
+        assertNotNull(attendances);
+        assertTrue(attendances.iterator().hasNext());
+        for(Attendance a : attendances) {
+            assertNotNull(a);
+            assertNotNull(a.getEmployee());
+            assertNotNull(a.getEmployee().getId());
+        }
+        //delete
+        attendanceRepository.delete(attendances);
+        employeeRepository.delete(employee);
+    }
+
+//    @Test
+//    @Ignore
+//    public void testFindAttendacesByEmployeeIdAndSpecifiedDateBetween() {
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(2014, 4, 20);
+//        Iterable<Attendance> attendances = attendanceRepository.findAttendancesByEmployeeAndBetweenDates(1L, calendar.getTime(), new Date());
+//        assertNotNull(attendances);
+//        assertTrue(attendances.iterator().hasNext());
+//        for(Attendance a : attendances) {
+//            assertNotNull(a);
+//            assertNotNull(a.getEmployee());
+//            assertNotNull(a.getEmployee().getId());
+//            System.out.println(a);
+//        }
+//    }
+
+
+
 }

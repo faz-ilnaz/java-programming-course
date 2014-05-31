@@ -11,6 +11,7 @@ import repository.EmployeeRepository;
 import service.EmployeeService;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -28,10 +29,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public Employee getEmployeeById(Long id) {
         Employee employee = employeeRepository.findOne(id);
-        if(employee != null) {
+        if (employee != null) {
             Hibernate.initialize(employee.getAttendances());
         }
         return employee;
+    }
+
+    @Override
+    @Transactional
+    public Employee getEmployeeByLogin(String login) {
+        return employeeRepository.getEmployeeByLogin(login);
     }
 
     @Override
@@ -69,5 +76,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public Iterable<Attendance> getAttendancesByDateBetween(Date d1, Date d2) {
         return attendanceRepository.getAttendanceByActualDateBetween(d1, d2);
+    }
+
+    @Override
+    @Transactional
+    public List<Attendance> getAttendanceByEmployeeAndDateBetween(Employee e, Date d1, Date d2) {
+        List<Attendance> attendances = attendanceRepository.getAttendanceByEmployeeAndActualDateBetween(e, d1, d2);
+        return attendances;
+
     }
 }

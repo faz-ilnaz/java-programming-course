@@ -25,6 +25,8 @@ public class Attendance implements Serializable {
     @Column(name = "att_end")
     private Date end;
 
+
+
     @Override
     public String toString() {
         return "Attendance{" +
@@ -33,6 +35,7 @@ public class Attendance implements Serializable {
                 ", start=" + start +
                 ", end=" + end +
                 '}';
+
     }
 
     public Date getActualDate() {
@@ -66,4 +69,6 @@ public class Attendance implements Serializable {
     public void setEnd(Date end) {
         this.end = end;
     }
+
+
 }

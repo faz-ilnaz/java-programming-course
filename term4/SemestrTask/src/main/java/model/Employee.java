@@ -1,6 +1,7 @@
 package model;
 
 import org.hibernate.annotations.GenericGenerator;
+import utils.Utils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,8 +25,46 @@ public class Employee  implements Serializable {
     @Column(name = "empl_job")
     private String job;
 
+    @Column(name = "empl_login", nullable = false, unique = true)
+    private String login;
+
+    @Column(name = "empl_pass")
+    private String pass;
+
+    @Column(name ="empl_salt")
+    private String salt;
+
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     private List<Attendance> attendances;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.salt = Utils.randString(6);
+        this.pass = Utils.md5(pass + this.salt);
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public void setAttendances(List<Attendance> attendances) {
+        this.attendances = attendances;
+    }
 
     public Employee() {
     }
@@ -60,8 +99,8 @@ public class Employee  implements Serializable {
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", job='" + job + '\'' +
-                ", attendances=" + attendances +
+                ", job='" + job +
+                ", login='" + login + "\'" +
                 '}';
     }
 

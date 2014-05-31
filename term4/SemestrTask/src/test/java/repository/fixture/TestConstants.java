@@ -5,6 +5,7 @@ public class TestConstants {
         String EMPLOYEE_FIRSTNAME = "Joe";
         String EMPLOYEE_LASTNAME = "Wernison";
         String EMPLOYEE_JOB = "manager";
+        String EMPLOYEE_LOGIN = "joe";
     }
 
     interface AttendanceConstants {

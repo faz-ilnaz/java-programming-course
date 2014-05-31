@@ -36,7 +36,7 @@ public class InviteController {
     @RequestMapping("/invite/saveResponse")
     public void response(@RequestParam Long cv_id, @RequestParam Long vacancy_id) {
         Invite invite = new Invite();
-        invite.setType(InviteType.RESPONSE);;
+        invite.setType(InviteType.RESPONSE);
         Vacancy vacancy = companyService.getVacancyById(vacancy_id);
         CV cv = userService.getCVById(cv_id);
         invite.setKey(new InvitePK(vacancy,cv));

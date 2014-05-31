@@ -9,6 +9,8 @@ public interface EmployeeService {
 
     Employee getEmployeeById(Long id);
 
+    Employee getEmployeeByLogin(String login);
+
     Iterable<Employee> getAllEmployees();
 
     void save(Employee employee);
@@ -20,6 +22,9 @@ public interface EmployeeService {
     Attendance getAttendanceByDateAndEmployee(Date d1, Long empl_id);
 
     Iterable<Attendance> getAttendancesByDateBetween(Date d1, Date d2);
+
+    Iterable<Attendance> getAttendanceByEmployeeAndDateBetween(Employee e, Date d1, Date d2);
+
 
 
 }

@@ -13,6 +13,7 @@ public class TestData {
         employee.setFirstname(EMPLOYEE_FIRSTNAME);
         employee.setLastname(EMPLOYEE_LASTNAME);
         employee.setJob(EMPLOYEE_JOB);
+        employee.setLogin(EMPLOYEE_LOGIN);
         return employee;
     }
 
